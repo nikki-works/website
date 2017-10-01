@@ -1,14 +1,22 @@
 {
-  "name": "grunt-getting-started",
-  "version": "0.1.0",
+  "name": "nitinjotwani.com",
+  "version": "1.0.0",
+  "description": "NJ Website",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ninjanikkinitin/website.git"
+  },
+  "author": "Nitin Jotwani",
+  "bugs": {
+    "url": "https://github.com/ninjanikkinitin/website/issues"
+  },
+  "homepage": "https://github.com/ninjanikkinitin/website#readme",
   "devDependencies": {
-    "requirejs":"latest",
-    "grunt": "~0.4.4",
-    "grunt-contrib-jshint": "latest",
-    "jshint-stylish": "latest",
-    "grunt-contrib-uglify": "latest",
-    "grunt-contrib-less": "latest",
-    "grunt-contrib-cssmin": "latest",
-    "grunt-contrib-watch": "latest"
+    "grunt": "^1.0.1",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-uglify": "^3.1.0",
+    "standard": "^10.0.3",
+    "vue": "^2.4.4"
   }
 }
