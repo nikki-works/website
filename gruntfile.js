@@ -29,6 +29,17 @@ module.exports = function (grunt) {
           ]
         }
       }
+    },
+
+    watch: {
+      css: {
+        files: ['app/styles/dev/*.less'],
+        tasks: ['less', 'cssmin']
+      },
+      js: {
+        files: ['app/scripts/*.js'],
+        tasks: ['uglify']
+      }
     }
   })
 
@@ -36,6 +47,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin')
   grunt.loadNpmTasks('grunt-contrib-less')
   grunt.loadNpmTasks('grunt-contrib-uglify')
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // do the tasks
   grunt.registerTask('default', [
