@@ -24,8 +24,10 @@ module.exports = function (grunt) {
       dist: {
         files: {
           'app/scripts/main.js': [
+            'static/js/min/jquery-3.2.1.min.js',
             'static/js/min/bootstrap.min.js',
-            'static/js/vue.js'
+            'static/js/vue.js',
+            'app/scripts/dev/custom.js'
           ]
         }
       }
@@ -37,7 +39,7 @@ module.exports = function (grunt) {
         tasks: ['less', 'cssmin']
       },
       js: {
-        files: ['app/scripts/*.js'],
+        files: ['app/scripts/dev/*.js'],
         tasks: ['uglify']
       }
     }
