@@ -1,32 +1,43 @@
-module.exports = function(grunt) {
-
+module.exports = function (grunt) {
   grunt.initConfig({
-    //basic settings and info about our plugins
-    pkg: grunt.file.readJSON("package.json"),
+    // basic settings and info about our plugins
+    pkg: grunt.file.readJSON('package.json'),
 
-    //name of plugin
+    less: {
+      development: {
+        files: {
+          'app/styles/dev/styleCompiledFromLess.css': 'app/styles/dev/*.less' // destination file and source file
+        }
+      }
+    },
+    // name of plugin
     cssmin: {
       combine: {
         files: {
-          "app/css/main.css": ["app/css/screen.css"]
+          'app/styles/main.css': ['static/css/min/bootstrap.min.css', 'app/styles/dev/styleCompiledFromLess.css']
         }
       }
     },
 
-    //name of plugin
+    // name of plugin
     uglify: {
       dist: {
         files: {
-          "app/css/main.min.js": ["app/css/screen.js"]
+          'app/scripts/main.min.js': ['app/scripts/screen.js']
         }
       }
     }
-  });
+  })
 
-  //load the plugins
-  grunt.loadNpmTasks("grunt-contrib-cssmin");
-  grunt.loadNpmTasks("grunt-contrib-uglify");
+  // load the plugins
+  grunt.loadNpmTasks('grunt-contrib-cssmin')
+  grunt.loadNpmTasks('grunt-contrib-less')
+  grunt.loadNpmTasks('grunt-contrib-uglify')
 
-  //do the tasks
-  grunt.registerTask("default", ["cssmin","uglify"]);
+  // do the tasks
+  grunt.registerTask('default', [
+    'less',
+    'cssmin',
+    'uglify'
+  ])
 }
