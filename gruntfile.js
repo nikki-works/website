@@ -23,7 +23,10 @@ module.exports = function (grunt) {
     uglify: {
       dist: {
         files: {
-          'app/scripts/main.min.js': ['app/scripts/screen.js']
+          'app/scripts/main.js': [
+            'static/js/min/bootstrap.min.js',
+            'static/js/vue.js'
+          ]
         }
       }
     }
