@@ -14,7 +14,10 @@ module.exports = function(grunt) {
     cssmin: {
       combine: {
         files: {
-          'app/styles/main.css': ['static/css/min/bootstrap.min.css', 'app/styles/dev/styleCompiledFromLess.css']
+          'app/styles/main.css': [
+            'node_modules/bootstrap/dist/css/bootstrap.min.css', 
+            'app/styles/dev/styleCompiledFromLess.css'
+          ]
         }
       }
     },
@@ -24,9 +27,9 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'app/scripts/main.js': [
-            'static/js/min/jquery-3.2.1.min.js',
-            'static/js/min/bootstrap.min.js',
-            'static/js/vue.js',
+            'node_modules/jquery/dist/jquery.min.js',
+            'node_modules/bootstrap/dist/js/bootstrap.min.js',
+            'node_modules/vue/dist/vue.js',
             'app/scripts/dev/custom.js'
           ]
         }
@@ -39,7 +42,7 @@ module.exports = function(grunt) {
         tasks: ['less', 'cssmin']
       },
       js: {
-        files: ['app/scripts/dev/*.js'],
+        files: ['app/scripts/dev/*.js', 'gruntfile.js'],
         tasks: ['uglify']
       }
     },
