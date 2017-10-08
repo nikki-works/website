@@ -1,4 +1,4 @@
-module.exports = function (grunt) {
+module.exports = function(grunt) {
   grunt.initConfig({
     // basic settings and info about our plugins
     pkg: grunt.file.readJSON('package.json'),
@@ -42,6 +42,21 @@ module.exports = function (grunt) {
         files: ['app/scripts/dev/*.js'],
         tasks: ['uglify']
       }
+    },
+
+    browserSync: {
+      bsFiles: {
+        src: [
+          'app/styles/main.css',
+          '/*.html'
+        ]
+      },
+      options: {
+        server: {
+          baseDir: "./"
+        },
+        watchTask: true
+      }
     }
   })
 
@@ -49,12 +64,16 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin')
   grunt.loadNpmTasks('grunt-contrib-less')
   grunt.loadNpmTasks('grunt-contrib-uglify')
-  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-watch')
+  grunt.loadNpmTasks('grunt-browser-sync');
+
 
   // do the tasks
   grunt.registerTask('default', [
     'less',
     'cssmin',
-    'uglify'
+    'uglify',
+    'browserSync',
+    'watch'
   ])
 }
