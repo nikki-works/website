@@ -26,7 +26,7 @@ module.exports = function (grunt) {
     uglify: {
       dist: {
         files: {
-          'src/scripts/main.js': [
+          'dist/scripts/main.js': [
             'node_modules/jquery/dist/jquery.min.js',
             'node_modules/bootstrap/dist/js/bootstrap.min.js'
           ]
@@ -72,9 +72,9 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'less',
     'cssmin',
-    'uglify',
-    'browserSync',
-    'watch'
+    'uglify'
+    // 'browserSync',
+    // 'watch'
   ])
   grunt.registerTask('prod', [
     'less',
